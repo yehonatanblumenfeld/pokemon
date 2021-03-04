@@ -1,60 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Media.Core;
 using Windows.Media.Playback;
 
 namespace FinalProject_Game
 {
-    class Sounds
+     public class Sounds
     {
+         public MediaPlayer SongPlayer;
 
-        MediaPlayer songPlayer;
-        bool playing;
-        
-        // wave up sound
+        #region wave up sound
         public async Task WaveUpSoundAsync()
         {
-            songPlayer = new MediaPlayer();
+            SongPlayer = new MediaPlayer();
             Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
-            Windows.Storage.StorageFile file = await folder.GetFileAsync("pokeMusic.mp3");
-            songPlayer.AutoPlay = false;
-            songPlayer.Source = MediaSource.CreateFromStorageFile(file);
-            songPlayer.Volume = 0.05;
-
-            if (playing)
-            {
-                songPlayer.Source = null;
-                playing = false;
-            }
-            else
-            {
-                songPlayer.Play();
-                playing = true;
-            }
-
+            Windows.Storage.StorageFile file = await folder.GetFileAsync("waveuppika.mp3");
+            SongPlayer.AutoPlay = false;
+            SongPlayer.Source = MediaSource.CreateFromStorageFile(file);
+            SongPlayer.Volume = 0.15;
+            SongPlayer.Play();
         }
         public async Task CatchPokeSoundAsync()
         {
-            songPlayer = new MediaPlayer();
-            Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets/sounds");
-            Windows.Storage.StorageFile file = await folder.GetFileAsync("pokeballsound.mp3");
-            songPlayer.AutoPlay = false;
-            songPlayer.Source = MediaSource.CreateFromStorageFile(file);
-            songPlayer.Volume = 0.05;
+            SongPlayer = new MediaPlayer();
+            Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+            Windows.Storage.StorageFile file = await folder.GetFileAsync("pokeballcatchsound.mp3");
+            SongPlayer.AutoPlay = false;
+            SongPlayer.Source = MediaSource.CreateFromStorageFile(file);
+            SongPlayer.Volume = 0.15;
+            SongPlayer.Play();
+        }
+        #endregion
+    }
 
-            if (playing)
-            {
-                songPlayer.Source = null;
-                playing = false;
-            }
-            else
-            {
-                songPlayer.Play();
-                playing = true;
-            }
-        }
-        }
 }

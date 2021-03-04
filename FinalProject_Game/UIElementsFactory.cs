@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
@@ -12,20 +8,15 @@ namespace FinalProject_Game
 {
     class UIElementsFactory
     {
-
-
+        #region all UI elements in project
         public static Button CreateStartBtn()
         {
             Button startbtn = new Button();
             startbtn.Content = "New Game";
             startbtn.Width = 350;
-            startbtn.Height = 80;
+            startbtn.Height = 82;
             startbtn.FontSize = 60;
-            startbtn.FontStyle = Windows.UI.Text.FontStyle.Italic;
-            //var brush = new ImageBrush();
-            //brush.ImageSource = new BitmapImage(new Uri("ms-appx:///Assets/buttonbackground.jpg"));
-            //brush.Stretch = Stretch.UniformToFill;
-            //startbtn.Background = brush;
+            startbtn.FontStyle = Windows.UI.Text.FontStyle.Italic;       
             startbtn.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Black);
             
             startbtn.BorderThickness = new Thickness(3, 3, 3, 3);
@@ -105,7 +96,7 @@ namespace FinalProject_Game
         {
             Image pickatchu = new Image();
             pickatchu.Source = new BitmapImage(new Uri("ms-appx:///Assets/pika.png"));
-            pickatchu.Height = 500;
+            pickatchu.Height = 500;          
             pickatchu.Width = 500;
             return pickatchu;
         }
@@ -147,5 +138,6 @@ namespace FinalProject_Game
             scoreBoard.Visibility = Visibility.Collapsed;
             return scoreBoard;
         }
+        #endregion
     }
 }

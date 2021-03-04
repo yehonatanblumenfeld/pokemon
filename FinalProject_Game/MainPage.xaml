@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <!--main board-->
 
         <Canvas x:Name="MainCanvas" Visibility="Collapsed">
             <Canvas.Background>
@@ -19,7 +20,6 @@
                     <ImageBrush/>
                 </Image.FocusVisualPrimaryBrush>
             </Image>
-
             <Button Click="btnexit_Click" x:Name="btnexit1"  Canvas.Left="898" Canvas.Top="750" Height="50" Width="150" RenderTransformOrigin="1.167,0.823" Visibility="Collapsed" Canvas.ZIndex="1">
                 <Button.FocusVisualPrimaryBrush>
                     <ImageBrush Stretch="None"/>
@@ -28,7 +28,8 @@
                     <ImageBrush ImageSource="/Assets/exit.gif" Stretch="UniformToFill"/>
                 </Button.Background>
             </Button>
-            
+
+            <!--menu canvas-->
 
         </Canvas>
         <Canvas Name="MenuCanvas" Visibility="Visible" >
@@ -36,11 +37,22 @@
                 <ImageBrush ImageSource="/Assets/menu2.gif"/>
             </Canvas.Background>
             <Image Source="/Assets/bannerpoke.png" Canvas.Left="540" Canvas.Top="143" Height="296" Width="815" />
-
-
-
-        </Canvas>
+        </Canvas >
         <Button Click="musicbtn_Click" Name="musicbtn" Content="Play Music" Background="Transparent" Margin="285,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Normal" FontSize="20" BorderBrush="Black"/>
 
+        <Canvas x:Name="cnvsControls" Visibility="Collapsed">
+            <Canvas.Background>
+                <ImageBrush ImageSource="/Assets/menu2.gif"/>
+            </Canvas.Background>
+            <Image Source="/Assets/WASD.png" Canvas.Left="383" Canvas.Top="44" Height="434" Width="1188" FocusVisualSecondaryBrush="#FFA64242" >
+                <Image.FocusVisualPrimaryBrush>
+                    <ImageBrush/>
+                </Image.FocusVisualPrimaryBrush>
+            </Image>
+            <Image Source="/Assets/space.png" Canvas.Left="592" Canvas.Top="470" Height="292" Width="753" />
+
+            <TextBlock Text="movement controls:" Height="85" Width="506" FontSize="50" Canvas.Left="776" Canvas.Top="30"  FontFamily="Ink Free" FontWeight="Bold" FontStyle="Normal" TextDecorations="Underline"/>
+            <TextBlock Text="Play/Pause - music:" Height="85" Width="506" FontSize="50" Canvas.Left="776" Canvas.Top="454"  FontFamily="Ink Free" FontWeight="Bold" FontStyle="Normal" TextDecorations="Underline"/>
+        </Canvas>
     </Grid>
 </Page>

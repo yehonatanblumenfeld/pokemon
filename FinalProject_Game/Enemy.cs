@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace FinalProject_Game
 {
@@ -15,6 +12,7 @@ namespace FinalProject_Game
             step = new Random().Next(4,10);
             base.PrintIMG(direction);
         }
+        #region enemy movement
         public void Move(GamePiece player)
         {
             if (this.X > player.X)
@@ -33,7 +31,7 @@ namespace FinalProject_Game
             {
                 this.Y += step;
             }
-         
-            }
+            #endregion
+        }
     }
 }

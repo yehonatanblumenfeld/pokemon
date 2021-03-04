@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
@@ -12,7 +8,7 @@ namespace FinalProject_Game
     public class GamePiece
     {
         protected string imageUri = "";
-
+        #region image prop & virtual func
         public Image Element { get; set; }
         public double X
         {
@@ -32,8 +28,7 @@ namespace FinalProject_Game
                 return Canvas.GetTop(Element);
             }
             set
-            {
-                
+            {             
                 Canvas.SetTop(Element, value);
             }
         }
@@ -45,7 +40,6 @@ namespace FinalProject_Game
             }
             set
             {
-
                 Canvas.SetZIndex(Element, value);
             }
         }
@@ -81,8 +75,8 @@ namespace FinalProject_Game
         }
         public virtual void PrintIMG(string direction)
         {
-            Element.Source = new BitmapImage(new Uri(imageUri));
-          
+            Element.Source = new BitmapImage(new Uri(imageUri));         
         }
+        #endregion
     }
 }
